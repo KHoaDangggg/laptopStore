@@ -1,0 +1,97 @@
+.container-fluid.bg-primary
+    .container-fluid.text-white.py-3.d-none.d-sm-block
+        .row 
+            .col-md-12.col-xl-6.marquee.align-items-center
+                p.mb-0.align-items-center Hà Nội: 49 Thái Hà | 151 Lê Thanh Nghị và 63 Trần Thái Tông ● HCM: 158 - 160 Lý Thường Kiệt | 330-332 Võ Văn Tần | 84T/14 Trần Đình Xu ● Bắc Ninh: Số 4 Nguyễn Văn Cừ - Ninh Xá
+            .col-md-12.col-xl-6.align-self-center
+                .row 
+                    .col-xl-4.col-sm-5.col-6.col-md-4
+                        i.fa-solid.fa-location-pin
+                        a(href = "#" style = "text-decoration: none").text-white: span.pl-1 Hệ thống showroom 
+                    .d-none.d-md-block.col-xl-2.col-md-2
+                        i.fa-solid.fa-circle-play
+                        a(href = "#" style = "text-decoration: none").text-white: span.pl-1 Video 
+                    .col-xl-2.col-sm-3.col-md-2.text-right
+                        i.fa-solid.fa-newspaper
+                        a(href = "#" style = "text-decoration: none").text-white: span.pl-1 Tin tức
+                    .col-xl-4.col-sm-4.col-6.col-md-4.text-right
+                        i.fa-solid.fa-fax
+                        a(href = "#" style = "text-decoration: none").text-white: span.pl-1 Tra cứu bảo hành
+    .container-fluid.py-2
+        .row.align-items-center
+            .col-lg-9.col-10.col-xl-6.col-sm-8.align-self-center
+                .row.align-items-center
+                    .d-none.d-lg-block.col-xl-3.col-md-4.col-12.col-lg-2
+                        a(href="/"): img(src="/logo.png" class="float-left img-fluid")
+                    .col-12.col-xl-9.col-sm-12.col-lg-10
+                        div.input-group
+                            input.form-control(type="text", placeholder="Search", aria-label="Search")
+                            div.input-group-append
+                                button.btn.btn-outline-secondary.bg-light(type="button") Tìm kiếm
+            .col-lg-3.col-2.col-xl-6.col-sm-4.align-self-center.text-white
+                .row.align-items-center
+                    .d-none.d-xl-block.col-xl-4
+                        .row.align-items-center
+                            .col-xl-2
+                                i(class="fa-solid fa-phone")
+                            .col-xl-10
+                                a(href = "#" style = "text-decoration: none").text-white: span 1900 0405
+                                br
+                                a(href = "#" style = "text-decoration: none").text-white: span 0916 445 354
+                    .d-none.d-xl-block.col-xl-3
+                        .row.align-items-center
+                            .col-xl-3
+                                i(class="fa-sharp fa-solid fa-desktop")
+                            .col-xl-9
+                                a(href = "#" style = "text-decoration: none").text-white: span Xây dựng cấu hình PC
+                    .d-none.d-sm-block.col-xl-3.col-sm-9.col-lg-9
+                        .row.align-items-center
+                            if user
+                                .col-xl-3.col-sm-3.col-2
+                                    a(href="/me"): img(src="user.png" style="width: 35px")
+                                .col-xl-9.col-sm-9.col-10
+                                    .btn-group
+                                        .dropdown-toggle(type='button' data-toggle='dropdown' aria-expanded='false')= user.name
+                                            
+                                        .dropdown-menu
+                                            a.dropdown-item(href='/changePassword') Thay đổi mật khẩu
+                                            a.dropdown-item(href='/mycart') Giỏ hàng
+                                            .dropdown-divider
+                                            a.dropdown-item.logout-btn(href='#') Đăng xuất
+                            else 
+                                .col-xl-3.col-sm-2.col-2
+                                    i(class="fa-solid fa-user")
+                                .col-xl-9.col-sm-9.col-10
+                                    a(href = "/signup" style = "text-decoration: none").text-white Đăng ký
+                                    br
+                                    a(href = "/login" style = "text-decoration: none").text-white Đăng nhập
+                    .col-12.col-xl-2.col-sm-3.col-lg-3
+                        .row.align-items-center
+                            .col-xl-4.col-sm-8
+                                a(href = "/mycart" style = "text-decoration: none").text-white: i(class="fa-solid fa-cart-shopping" style="font-size: 30px")         
+    .container-fluid.py-2
+        .row.align-items-center.text-white
+            .dropdown
+                button.btn.btn-secondary.dropdown-toggle.bg-primary.border-0(type="button" data-toggle="dropdown" aria-expanded="false") Danh mục sản phẩm 
+                .dropdown-menu
+                    a.dropdown-item(href="#") Laptop Dell
+                    a.dropdown-item(href="#") Laptop Asus
+                    a.dropdown-item(href="#") Other Laptop
+            .d-none.d-lg-block.col-lg-3.col-xl-2
+                i(class="fa-solid fa-check")
+                span.pl-2  Sản phẩm đã xem
+            .col-lg-3.col-sm-3.col-md-3.text-center.col-xl-2.col-4
+                i(class="fa-solid fa-bolt-lightning")
+                span.pl-2 Flash sale
+            .d-none.d-xl-block.col-lg-2.col-xl-2
+                i(class="fa-solid fa-phone-volume")
+                span.pl-2 Tư vấn bán hàng
+            .d-none.d-sm-block.col-lg-3.col-sm-5.col-md-5.text-right.col-xl-2
+                i(class="fa-solid fa-truck-fast")
+                span.pl-2 Miễn phí vận chuyển
+            .d-none.d-xl-block.col-xl-2
+                i(class="fa-solid fa-city")
+                span.pl-2 Ưu đãi doanh nghiệp
+
+
+

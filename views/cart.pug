@@ -1,0 +1,33 @@
+extend base
+
+
+block content
+    .bg-light
+        .container.bg-white.p-5
+            h3 Giỏ hàng của bạn 
+            p.pb-3.border-bottom.border-secondary
+                span.text-danger.font-weight-bold Liên hệ nhân viên trước khi chuyển tiền mua hàng.
+                br
+                span.text-danger.font-weight-bold Để đặt hàng, 
+                span quý khách vui lòng kiểm tra sản phẩm, số lượng, giá, màu sắc và điền các thông tin dưới đây:
+            ul.list-unstyled(data-products = `${JSON.stringify(products) || null}` data-user = `${JSON.stringify(user._id) || null}`)
+                
+            p.text-right
+                span Phí vận chuyển: 0đ
+                br 
+                span Phí Thu Hộ: 0đ
+                br 
+                span.text-danger.font-weight-bold Tổng cộng: 
+                span.totalCost 
+                span d
+                br 
+                span.text-danger.font-weight-bold Thanh Toán:  
+                span.totalCost 
+                span d
+                br
+                button.mt-3.btn.btn-primary.btn-lg.buy-btn(type='button') ĐẶT HÀNG
+                            
+
+block append script 
+    script(src="js/cartRender.mjs") 
+    script(src="/js/buttons.mjs") 

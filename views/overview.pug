@@ -1,0 +1,134 @@
+extends base
+block append head 
+    script(src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js')
+    link(href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet')
+    <style>
+    </style>
+
+
+block content 
+    .bg-light.contain-req(data-path = `${req.path}` data-query = `${JSON.stringify(req.query)}`)
+        .row 
+            .col-xl-1 
+            .col-xl-10 
+                .container-fluid.bg-white 
+                    h4.text-center.pt-3 Bộ lọc
+                    //For >= tablet
+                    .row.align-items-center.d-none.d-sm-block
+                        h6.col-xl-2 Hãng sản xuất 
+                        .col-xl-10(class="btn-group" role="group" aria-label="Button group")
+                            a: button(data-manu = "Dell" type="button" class="manufacturer-filter btn btn-light m-1") Dell
+                            a: button(data-manu = "Asus" type="button" class="manufacturer-filter btn btn-light m-1") Asus
+                            a: button(data-manu = "Acer" type="button" class="manufacturer-filter btn btn-light m-1") Acer 
+                            a: button(data-manu = "Lenovo" type="button" class="manufacturer-filter btn btn-light m-1") Lenovo
+                    .row.align-items-center.d-none.d-sm-block
+                        h6.col-xl-2 Khoảng giá
+                        .col-xl-10(class="btn-group" role="group" aria-label="Button group")
+                            a: button(type="button" class="btn btn-light m-1 price-filter" data-maxprice= "10000000" data-minprice = "0" ) < 10 triệu
+                            a: button(type="button" class="btn btn-light m-1 price-filter" data-maxprice= "15000000" data-minprice = "10000000" ) 10 - 15 triệu
+                            a: button(type="button" class="btn btn-light m-1 price-filter" data-maxprice= "20000000" data-minprice = "15000000" ) 15 - 20 triệu
+                            a: button(type="button" class="btn btn-light m-1 price-filter" data-maxprice= "100000000" data-minprice = "20000000" ) > 20 triệu                         
+                    .row.align-items-center.d-none.d-sm-block
+                        h6.col-xl-2 Dung lượng RAM
+                        .col-xl-10(class="btn-group" role="group" aria-label="Button group")
+                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "0" data-maxram= "4") <= 4GB
+                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "4" data-maxram= "8") 8GB
+                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "8" data-maxram= "16") 16GB
+                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "16" data-maxram= "128") > 16GB
+                    .row.align-items-center.d-none.d-sm-block
+                        h6.col-xl-2 Bộ vi xử lí 
+                        .col-xl-10(class="btn-group" role="group" aria-label="Button group")
+                            button( data-cpu = 'i3' type="button" class="cpu-filter btn btn-light m-1" ) Intel I3
+                            button( data-cpu = 'i5' type="button" class="cpu-filter btn btn-light m-1") Intel I5
+                            button( data-cpu = 'i7' type="button" class="cpu-filter btn btn-light m-1") Intel I7
+                            button( data-cpu = 'r3' type="button" class="cpu-filter btn btn-light m-1") AMD Ryzen 3
+                            button( data-cpu = 'r5' type="button" class="cpu-filter btn btn-light m-1") AMD Ryzen 5
+                            button( data-cpu = 'r7' type="button" class="cpu-filter btn btn-light m-1") AMD Ryzen 7
+                    //For mobile
+                    .d-flex.justify-content-center.d-block.d-sm-none
+                        .dropdown.mx-1
+                            a.btn.btn-secondary.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-expanded="false") Giá
+                            .dropdown-menu
+                                a.dropdown-item.price-filter(data-maxprice= "10000000" data-minprice = "0") <= 10 triệu
+                                a.dropdown-item.price-filter(data-maxprice= "15000000" data-minprice = "10000000") 10 triệu - 15 triệu
+                                a.dropdown-item.price-filter(data-maxprice= "20000000" data-minprice = "15000000") 15 triệu - 20 triệu
+                                a.dropdown-item.price-filter(data-maxprice= "100000000" data-minprice = "20000000") >= 20 triệu
+                        .dropdown.mx-1
+                            a.btn.btn-secondary.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-expanded="false") Hãng
+                            .dropdown-menu
+                                a.dropdown-item.manufacturer-filter(data-manu = "Dell") Dell
+                                a.dropdown-item.manufacturer-filter(data-manu = "Asus") Asus
+                                a.dropdown-item.manufacturer-filter(data-manu = "Acer") Acer
+                                a.dropdown-item.manufacturer-filter(data-manu = "Lenovo") Lenovo
+                        .dropdown.mx-1
+                            a.btn.btn-secondary.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-expanded="false") Chip
+                            .dropdown-menu
+                                a.dropdown-item.cpu-filter( data-cpu = 'i3' ) Intel I3
+                                a.dropdown-item.cpu-filter( data-cpu = 'i5' ) Intel I5
+                                a.dropdown-item.cpu-filter( data-cpu = 'i7' ) Intel I7
+                                a.dropdown-item.cpu-filter( data-cpu = 'r3' ) AMD Ryzen 3
+                                a.dropdown-item.cpu-filter( data-cpu = 'r5' ) AMD Ryzen 5
+                                a.dropdown-item.cpu-filter( data-cpu = 'r7' ) AMD Ryzen 7
+                        .dropdown.mx-1
+                            a.btn.btn-secondary.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-expanded="false") RAM
+                            .dropdown-menu
+                                a.dropdown-item.ram-filter(data-minram = "0" data-maxram= "4" ) <= 4GB
+                                a.dropdown-item.ram-filter(data-minram = "4" data-maxram= "8") 8GB
+                                a.dropdown-item.ram-filter(data-minram = "8" data-maxram= "16") 16GB
+                                a.dropdown-item.ram-filter(data-minram = "16" data-maxram= "128") > 16GB
+                .container-fluid.bg-white.pt-3
+                    .row.align-items-center.border.border-light
+                        h6.col-xl-2.col-3 Sắp xếp theo 
+                        .col-xl-10.col-9(class="btn-group" role="group" aria-label="Button group")
+                            a(href = '/'): button(type="button" class="btn btn-light m-1") Mặc định
+                            a: button(type="button" class="avail btn btn-light m-1" ) Còn hàng
+                            a: button(type="button" class="ascPrice btn btn-light m-1" ) Giá tăng dần
+                            a: button(type="button" class="desPrice btn btn-light m-1" ) Giá giảm dần
+                            a: button.d-none.d-sm-block(type="button" class="desRate btn btn-light m-1" ) Bán chạy
+                    .row.pt-3
+                        if laptops.length == 0
+                            h5.col-12.pt-5.pb-5.text-center Không có sản phẩm phù hợp
+                        else 
+                            each laptop in laptops 
+                                .product-card.col-xl-3.col-md-4.col-sm-6.col-12
+                                    .card.my-2
+                                        a.border-bottom.border-secondary(href=`/${laptop.slug}`): img.card-img-top(src=`/laptop/${laptop.image[0]}` alt="laptop")
+                                        .card-body.text-truncate
+                                            span.small= laptop.name_model
+                                            br
+                                            span.small (#{laptop.cpu}|#{laptop.ram}GB)
+                                            br
+                                            br
+                                            span.font-weight-bold.card-text.line-through.text-secondary #{(laptop.price).toLocaleString('en-US')} đ
+                                            span.font-weight-bold.py-2.px-2.badge.badge-warning.rounded-circle.ml-3.text-white -#{laptop.discount_percentage}%
+                                            br
+                                            - const newPrice = laptop.price - laptop.price * laptop.discount_percentage /100
+                                            span.h5.font-weight-bolder.card-text.text-danger #{(newPrice).toLocaleString('en-US')} đ
+                                            br
+                                            span 1 khuyến mãi 
+                                            br
+                                            .d-flex.justify-content-between
+                                                a.text-primary So sánh
+                                                if user 
+                                                    button.btn.btn-white.purchase-btn(data-user = `${user.id}` data-item = `${laptop.id}`): i.text-primary.h5(class="fa-solid fa-cart-shopping")
+                                                else 
+                                                    button.btn.btn-white.purchase-btn(data-user = `${null}` data-item = `${laptop.id}`): i.text-primary.h5(class="fa-solid fa-cart-shopping")
+                if laptops.length > 0
+                    .d-flex.justify-content-center.bg-white.py-3
+                        if pageCurrent > 1
+                            button.btn.btn-light.paginationBtn(data-page=`${pageCurrent-1}`) Trước  
+                        button.btn.btn-light.paginationBtn(data-page=`${pageCurrent+1}`) Tiếp                
+            .col-xl-1
+    .section-map.bg-light.pt-5
+        h4.text-center Hệ thống cửa hàng 
+        .text-right
+            select.map-select.m-2
+                option(value="Hanoi") Hà Nội
+                option(value="Ho Chi Minh City") Hồ Chí Minh
+                option(value="Da Nang") Đà Nẵng
+        #map(data-stores = `${JSON.stringify(stores)}` st)
+block append script
+    script(src="js/mapBox.mjs") 
+    script(src="js/filter.mjs") 
+    script(src="js/purchase.mjs") 
+

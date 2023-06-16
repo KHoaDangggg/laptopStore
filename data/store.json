@@ -1,0 +1,137 @@
+[
+    {
+        "address": "123 Nguyen Van Linh, District 7, Ho Chi Minh City",
+        "location": {
+            "type": "Point",
+            "coordinates": [106.698315, 10.734729]
+        },
+        "hotline": "0901234567",
+        "city": "Ho Chi Minh City"
+    },
+    {
+        "address": "456 Nguyen Trai, Thanh Xuan, Hanoi",
+        "location": {
+            "type": "Point",
+            "coordinates": [105.814753, 21.002213]
+        },
+        "hotline": "0909876543",
+        "city": "Hanoi"
+    },
+    {
+        "address": "789 Le Duan, Hai Chau, Da Nang",
+        "location": {
+            "type": "Point",
+            "coordinates": [108.218077, 16.067142]
+        },
+        "hotline": "0901111222",
+        "city": "Da Nang"
+    },
+    {
+        "address": "456 Nguyen Huu Canh, Binh Thanh, Ho Chi Minh City",
+        "location": {
+            "type": "Point",
+            "coordinates": [106.712889, 10.800152]
+        },
+        "hotline": "0902222333",
+        "city": "Ho Chi Minh City"
+    },
+    {
+        "address": "789 Nguyen Trai, Thanh Xuan, Hanoi",
+        "location": {
+            "type": "Point",
+            "coordinates": [105.809944, 21.004947]
+        },
+        "hotline": "0903333444",
+        "city": "Hanoi"
+    },
+    {
+        "address": "123 Tran Phu, Hai Chau, Da Nang",
+        "location": {
+            "type": "Point",
+            "coordinates": [108.214175, 16.06544]
+        },
+        "hotline": "0904444555",
+        "city": "Da Nang"
+    },
+    {
+        "address": "456 Le Van Sy, Phu Nhuan, Ho Chi Minh City",
+        "location": {
+            "type": "Point",
+            "coordinates": [106.674453, 10.802624]
+        },
+        "hotline": "0905555666",
+        "city": "Ho Chi Minh City"
+    },
+    {
+        "address": "789 Cau Giay, Cau Giay, Hanoi",
+        "location": {
+            "type": "Point",
+            "coordinates": [105.801364, 21.03063]
+        },
+        "hotline": "0906666777",
+        "city": "Hanoi"
+    },
+    {
+        "address": "123 Phan Chau Trinh, Hai Chau, Da Nang",
+        "location": {
+            "type": "Point",
+            "coordinates": [108.214169, 16.066663]
+        },
+        "hotline": "0907777888",
+        "city": "Da Nang"
+    },
+    {
+        "address": "456 Nguyen Van Cu, Long Bien, Hanoi",
+        "location": {
+            "type": "Point",
+            "coordinates": [105.893174, 21.045204]
+        },
+        "hotline": "0908888999",
+        "city": "Hanoi"
+    },
+    {
+        "address": "123 Hoang Dieu, Hai Chau, Da Nang",
+        "location": {
+            "type": "Point",
+            "coordinates": [108.214949, 16.067296]
+        },
+        "hotline": "0909990000",
+        "city": "Da Nang"
+    },
+    {
+        "address": "456 Nguyen Chi Thanh, Dong Da, Hanoi",
+        "location": {
+            "type": "Point",
+            "coordinates": [105.815636, 21.027146]
+        },
+        "hotline": "0901111000",
+        "city": "Hanoi"
+    },
+    {
+        "address": "789 Vo Van Kiet, District 1, Ho Chi Minh City",
+        "location": {
+            "type": "Point",
+            "coordinates": [106.696296, 10.775333]
+        },
+        "hotline": "0902222000",
+        "city": "Ho Chi Minh City"
+    },
+    {
+        "address": "123 Bach Dang, Hai Chau, Da Nang",
+        "location": {
+            "type": "Point",
+            "coordinates": [108.21827, 16.066376]
+        },
+        "hotline": "0903333000",
+        "city": "Da Nang"
+    },
+    {
+        "address": "456 Ho Tung Mau, Cau Giay, Hanoi",
+        "location": {
+            "type": "Point",
+            "coordinates": [105.795772, 21.036777]
+        },
+        "hotline": "0904444000",
+        "city": "Hanoi"
+    }
+]

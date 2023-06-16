@@ -1,0 +1,239 @@
+extend base 
+
+
+block content 
+    .bg-light
+        .container.bg-white.pt-4.pb-5
+            .row.p-1
+                .col-lg-4.col-md-5.col-sm-12 
+                    #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+                        ol.carousel-indicators
+                            li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+                            li(data-target='#carouselExampleIndicators' data-slide-to='1')
+                            li(data-target='#carouselExampleIndicators' data-slide-to='2')
+                        .carousel-inner
+                            .carousel-item.active
+                                img.d-block.w-100(src='/laptop/laptop11.jpg' alt='...')
+                            .carousel-item
+                                img.d-block.w-100(src='/laptop/laptop12.jpg' alt='...')
+                            .carousel-item
+                                img.d-block.w-100(src='/laptop/laptop13.jpg' alt='...')
+                        button.carousel-control-prev(type='button' data-target='#carouselExampleIndicators' data-slide='prev')
+                            span.bg-secondary.carousel-control-prev-icon(aria-hidden='true')
+                            span.sr-only Previous
+                        button.carousel-control-next(type='button' data-target='#carouselExampleIndicators' data-slide='next')
+                            span.bg-secondary.carousel-control-next-icon(aria-hidden='true')
+                            span.sr-only Next
+                    table.table.table-striped
+                        tr
+                            th Hãng sản xuất
+                            td #{product.manufacturer}
+                        tr
+                            th Hãng sản xuất năm
+                            td #{product.manufacturer_year}
+                        tr
+                            th Tên sản phẩm
+                            td #{product.name_model}
+                        tr
+                            th CPU
+                            td #{product.cpu}
+                        tr
+                            th GPU
+                            if product.gpu.onboard == true
+                                td Onboard
+                            else
+                                td #{product.gpu.name}
+                        tr
+                            th RAM
+                            td #{product.ram}GB
+                    // Button trigger modal
+                    button.btn.btn-outline-primary.mb-3(type='button' data-toggle='modal' data-target='#exampleModal')
+                        | Xem thêm thông số
+                    // Modal
+                    #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                        .modal-dialog
+                            .modal-content
+                                .modal-header.bg-primary.text-white
+                                    h5#exampleModalLabel.modal-title Thông số chi tiết
+                                    button.h5.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span(aria-hidden='true') &times;
+                                .modal-body
+                                    table.table.table-striped
+                                        tr
+                                            th Hãng sản xuất
+                                            td #{product.manufacturer}
+                                        tr
+                                            th Hãng sản xuất năm
+                                            td #{product.manufacturer_year}
+                                        tr
+                                            th Tên sản phẩm
+                                            td #{product.name_model}
+                                        tr
+                                            th CPU
+                                            td #{product.cpu}
+                                        tr
+                                            th GPU
+                                            if product.gpu.onboard == true
+                                                td Onboard
+                                            else
+                                                td #{product.gpu.name}
+                                        tr
+                                            th RAM
+                                            td #{product.ram}GB
+                                        tr
+                                            th SSD
+                                            td #{product.ssd}GB
+                                        tr
+                                            th HDD
+                                            td #{product.hdd}GB
+                                        tr
+                                            th Hệ điều hành
+                                            td #{product.operating_system}
+                                        tr
+                                            th Pin
+                                            td #{product.battery}
+                                        tr
+                                            th Trọng lượng
+                                            td #{product.weight}kg
+                                        tr
+                                            th Camera
+                                            td #{product.camera}
+                                        tr
+                                            th Màu
+                                            td #{product.color}
+                                        tr
+                                            th Chất liệu
+                                            td #{product.material}
+
+                .col-lg-5.col-md-7.col-sm-12
+                    h5 #{product.name_model} (#{product.cpu} | #{product.ram}GB | #{product.ssd}GB | #{product.display.size}inch | #{product.operating_system} | #{product.color})
+                    p 
+                        - let star = 0
+                        while ++star <= product.rating.average
+                            i.fa-solid.fa-star.text-warning
+                        while star++ <=5 
+                            i.fa-solid.fa-star.text-secondary
+                        span.small &nbsp&nbspLượt đánh giá: #{product.rating.amount}
+                        span &nbsp&nbsp&nbsp&nbsp&nbsp   
+                        span.small Lượt mua: #{product.sold}
+                    p.d-none.d-md-block  
+                        i.fa-solid.fa-circle-check.text-warning
+                        span  &nbsp&nbsp CPU: #{product.cpu}
+                        br
+                        i.fa-solid.fa-circle-check.text-warning
+                        span  &nbsp&nbsp RAM: #{product.ram}GB
+                        br
+                        i.fa-solid.fa-circle-check.text-warning
+                        span  &nbsp&nbsp SSD: #{product.ssd}GB
+                        br
+                        i.fa-solid.fa-circle-check.text-warning
+                        if product.gpu.onboard == true 
+                            span  &nbsp&nbsp VGA: Onboard
+                        else
+                            span  &nbsp&nbsp VGA: #{product.gpu.name}
+                        br
+                        i.fa-solid.fa-circle-check.text-warning
+                        span  &nbsp&nbsp Màn hình: #{product.display.size}inch #{product.display.type}, #{product.display.brightness}nits
+                        br
+                        i.fa-solid.fa-circle-check.text-warning
+                        span  &nbsp&nbsp Hệ điều hành: #{product.operating_system}
+                        br
+                        i.fa-solid.fa-circle-check.text-warning
+                        span  &nbsp&nbsp Màu sắc: #{product.color}
+                        br
+                        i.fa-solid.fa-circle-check.text-warning
+                        span  &nbsp&nbsp Pin: #{product.battery}
+                        br
+                        
+                    .container-fluid.bg-light.pt-3.pb-3
+                        table
+                            tr 
+                                td(style="min-width: 120px"): span.small Giá niêm yết: 
+                                td: span.font-weight-bold.line-through.text-secondary #{(product.price).toLocaleString('en-US')}đ
+                            tr 
+                                td: span.small Giá khuyến mãi:
+                                td: span.h5.font-weight-bolder.text-danger #{(product.new_price).toLocaleString('en-US')}đ
+                            tr 
+                                td
+                                td
+                                    i.fa-solid.fa-gift.text-warning
+                                    span.small.text-primary &nbsp&nbspNgày Vàng Không Ngủ với hàng trăm sản phẩm Giá Không Đối Thủ -Xem chi tiết
+                            tr
+                                td 
+                                td
+                                    i.fa-solid.fa-gift.text-warning
+                                    span.small.text-primary &nbsp&nbspGiảm ngay 20% gói Bảo hành mở rộng cho tất cả các sản phẩm khi mua kèm-Xem chi tiết
+                            
+                    p.font-weight-bold Bảo hành: 24 tháng (Pin 12 Tháng), Đổi mới trong 15 ngày 
+                    .card.border-danger.mb-3(style = "position: relative")
+                        .km-flag.bg-danger
+                            i.fa-solid.fa-gift.text-white
+                            span.text-white.font-weight-bold  KHUYẾN MÃI
+                        .card-body
+                            br
+                            br
+                            i.fa-solid.fa-gift.text-warning
+                            span.h5.font-weight-bold.small.text-danger  Bộ quà tặng bao gồm:
+                            br
+                            br
+                            span.small ✦ Túi cho máy Notebook (TUNB0009) 
+                            br
+                            span.small ✦ Chuột không dây AP2021(MUKH0061)
+                            br
+                            span.small ✦ Giá không hỗ trợ thanh toán Visa, không áp dụng chương trình Qrcode
+                            br
+                            br
+                            i.fa-solid.fa-gift.text-warning
+                            span.h5.font-weight-bold.small.text-danger  Ưu đãi mua kèm giá hấp dẫn:
+                            br
+                            br
+                            span.small ✦ Ưu đãi giảm 10% khi mua ổ cắm điện và phụ kiện.
+                            br
+                            span.small ✦ Ưu đãi mua cùng TPLink WR940N Bộ phát không dây chỉ với giá 399.000vnđ (WFTP0005) TPLink TL WR940N
+                            br
+                            span.small ✦ Giảm giá màn hình lên tới 1.000.000đ khi mua cùng màn hình.
+                            br 
+                            span.small ✦ Ưu đãi giảm giá 50% khi mua túi chống sốc HP 14-15,6" cao cấp.
+                    button.btn.btn-danger.btn-lg.btn-block.text-white.purchase-btn(type='button' data-item=`${product._id}` data-user = `${user._id}`)
+                        span.h5 ĐẶT MUA NGAY
+                        br
+                        span.small Nhanh chóng, thuận tiện
+
+                .col-lg-3.d-none.d-lg-block
+                    p.text-danger
+                        i.fa-solid.fa-location-pin
+                        span.small &nbsp&nbspMua hàng Online toàn quốc: 
+                        br
+                        span.small (Hotline: 1900.0123 - Phím 1 hoặc 0912.234.345)
+                    .card
+                        p.card-header.small.font-weight-bold.bg-primary.text-white HIỆN ĐANG CÓ TẠI:
+                        .card-body.text-primary
+                            p.card-text.small 49 Thái Hà – P. Trung Liệt – Q. Đống Đa – Hà Nội
+                            p.card-text.small 49 Thái Hà – P. Trung Liệt – Q. Đống Đa – Hà Nội
+                            p.card-text.small 49 Thái Hà – P. Trung Liệt – Q. Đống Đa – Hà Nội
+                    .card.mt-3
+                        p.card-header.small.font-weight-bold.bg-primary.text-white TRỢ GIÚP:
+                        .card-body.text-primary
+                            p.card-text.small 
+                                i.fa-solid.fa-check
+                                span  Hướng dẫn đặt hàng Flash Sale 
+                            p.card-text.small 
+                                i.fa-solid.fa-check
+                                span  Hướng dẫn mua hàng
+                            p.card-text.small 
+                                i.fa-solid.fa-check
+                                span  Chính sách bảo hành đổi trả
+                            p.card-text.small 
+                                i.fa-solid.fa-check
+                                span  Chính sách mua trả góp
+                            p.card-text.small 
+                                i.fa-solid.fa-check
+                                span  Chính sách giao hàng
+                            p.card-text.small 
+                                i.fa-solid.fa-check
+                                span  Chính sách bảo hành tận nhà
+                            
+                            
+
+block append script
+    script(src="js/purchase.mjs") 
