@@ -17,6 +17,6 @@ Router.get('/signup', getSignupForm);
 Router.use(isLoggedIn);
 Router.get('/mycart', getMyCart);
 Router.get('/changePassword', protect, changePassword);
-Router.route('/').get(getOverview);
 Router.get('/:slug', protect, getProduct);
+Router.route('/').get(getOverview);
 export default Router;

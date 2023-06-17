@@ -47,7 +47,7 @@ const userSchema = mongoose.Schema({
     items: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Product',
+            ref: 'Laptop',
         },
     ],
 });

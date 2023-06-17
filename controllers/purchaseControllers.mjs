@@ -1,6 +1,8 @@
 import User from '../models/userModel.mjs';
+import Product from '../models/productModel.mjs';
 import catchAsync from '../ultils/catchAsync.mjs';
 import { updateOne, getAll, getOne } from './handleFactory.mjs';
+import Stripe from 'stripe';
 
 const purchaseItem = catchAsync(async (req, res, next) => {
     const { userId, itemId } = req.body;
@@ -27,4 +29,45 @@ const deletePurchase = catchAsync(async (req, res, next) => {
         status: 'success',
     });
 });
-export { purchaseItem, deletePurchase };
+const stripe = new Stripe(
+    'sk_test_51MpCA0DfcEM9cIAm0SlXbB7WjZpXe7HEwSwCAjde0FZoLndTIYUnHJsp5F5HEcyEUpCy9zJiU2OIIFRf2t5KNnXx00PnlNRkfx'
+);
+const checkOutSession = catchAsync(async (req, res) => {
+    console.log('checkOutSession');
+    //1. Get tour
+    const user = await User.findById(req.params.userID).populate('items');
+    const items = user.items;
+    const price = items.reduce((acc, cur) => acc + cur.new_price, 0);
+    //2. Create checkout session
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        success_url: `${req.protocol}://${req.get('host')}/`,
+        cancel_url: `${req.protocol}://${req.get('host')}/mycart`,
+        client_reference_id: req.params.userID,
+        customer_email: req.user.email,
+        line_items: [
+            {
+                price_data: {
+                    currency: 'vnd',
+                    unit_amount: price,
+                    product_data: {
+                        name: `Thanh toán giỏ hàng`,
+                        description: 'Thanh toan',
+                        images: [
+                            `${req.protocol}://${req.get('host')}/purchase.jpg`,
+                        ],
+                    },
+                },
+                quantity: 1,
+            },
+        ],
+        mode: 'payment',
+    });
+    //3. Create session as response
+    res.status(201).json({
+        status: 'success',
+        session,
+    });
+});
+
+export { checkOutSession, purchaseItem, deletePurchase };

@@ -25,9 +25,12 @@ block content
                 span.totalCost 
                 span d
                 br
-                button.mt-3.btn.btn-primary.btn-lg.buy-btn(type='button') ĐẶT HÀNG
+                button.mt-3.btn.btn-primary.btn-lg.buy-btn.purchase-btn(type='button' data-user = `${JSON.stringify(user._id)}`) ĐẶT HÀNG
                             
 
 block append script 
     script(src="js/cartRender.mjs") 
-    script(src="/js/buttons.mjs") 
+    script(src="js/buttons.mjs") 
+    script(type="text/javascript" src="https://js.stripe.com/v3/")
+    script(src="js/stripe.mjs") 
+

@@ -10,6 +10,7 @@ import path from 'path';
 import productRouter from './routes/productRoute.mjs';
 import viewRouter from './routes/viewRoute.mjs';
 import userRouter from './routes/userRoute.mjs';
+import purchaseRouter from './routes/purchaseRoute.mjs';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = express();
@@ -41,4 +42,5 @@ app.use('/', viewRouter);
 //API
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
+app.use('/api/purchase', purchaseRouter);
 export default app;

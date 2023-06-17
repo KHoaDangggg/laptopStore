@@ -79,3 +79,6 @@
 .alert--error {
     background-color: #eb4d4b;
 }
+.alert--warning {
+    background-color: #d1bb58;
+}
