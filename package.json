@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.mjs",
     "scripts": {
-        "start": "nodemon ./index.mjs",
-        "vercel-build": "node ./index.mjs"
+        "start": "node ./index.mjs",
+        "vercel-build": "node ./index.mjs",
+        "dev": "nodemon index.mjs"
     },
     "keywords": [],
     "author": "",
