@@ -82,3 +82,32 @@
 .alert--warning {
     background-color: #d1bb58;
 }
+.search-suggestion {
+    position: absolute;
+    z-index: 2;
+    top: 40px;
+}
+.search-suggestion li {
+    padding: 0.4rem 0.8rem;
+}
+
+#autocomplete-list {
+    position: absolute;
+    z-index: 2;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#autocomplete-list div {
+    position: relative;
+    display: block;
+    padding: 0.4rem 0.8rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    cursor: pointer;
+}

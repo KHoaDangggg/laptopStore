@@ -9,7 +9,9 @@ const render = () => {
             accumulate +
             `<li class="row border-bottom border-secondary pb-4">
                 <div class="col-12 col-md-3 col-lg-3 d-flex justify-content-center mb-3">
-                    <img src="/laptop/laptop11.jpg" style="max-width: 150px; max-height: 150px">
+                    <img src="/laptop/${
+                        product.image[0]
+                    }" style="max-width: 150px; max-height: 150px">
                 </div>
                 <div class="col-12 col-md-9 col-lg-6">
                     <p class="h5 font-weight-bold mt-0 mb-1">
@@ -64,9 +66,9 @@ const render = () => {
                         <button class="border border-secondary btn btn-light increaseBtn" type="button">+</button>
                         </div>
                     </div>
-                    <button class="deleteBtn btn btn-danger btn-sm mt-3" type="button" data-user = "${user}" data-item = "${
-                product._id
-            }">Xóa</button>
+                    <button class="deleteBtn btn btn-danger btn-sm mt-3" type="button" data-user = "${
+                        user === null ? null : user._id
+                    }" data-item = "${product._id}">Xóa</button>
                 </div>
             </li>`
         );
@@ -80,4 +82,5 @@ const render = () => {
 if (products === null) {
     products = JSON.parse(localStorage.getItem('cart')) || [];
 }
+products = products.filter((el) => el !== null);
 render();

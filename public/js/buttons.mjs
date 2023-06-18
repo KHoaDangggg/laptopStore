@@ -51,14 +51,20 @@ deleteBtns.forEach((btn) => {
     const userId = btn.dataset.user;
     btn.onclick = async () => {
         btn.closest('li').style.display = 'none';
-        await axios({
-            method: 'PATCH',
-            url: '/api/users/deletePurchase',
-            data: {
-                itemId,
-                userId,
-            },
-        });
+        if (userId !== 'null') {
+            await axios({
+                method: 'PATCH',
+                url: '/api/users/deletePurchase',
+                data: {
+                    itemId,
+                    userId,
+                },
+            });
+        } else {
+            let items = JSON.parse(localStorage.getItem('cart'));
+            items = items.filter((item) => item._id !== itemId);
+            localStorage.setItem('cart', JSON.stringify(items));
+        }
         calculateTotal();
     };
 });

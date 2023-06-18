@@ -194,7 +194,7 @@ block content
                             span.small ✦ Giảm giá màn hình lên tới 1.000.000đ khi mua cùng màn hình.
                             br 
                             span.small ✦ Ưu đãi giảm giá 50% khi mua túi chống sốc HP 14-15,6" cao cấp.
-                    button.btn.btn-danger.btn-lg.btn-block.text-white.purchase-btn(type='button' data-item=`${product._id}` data-user = `${user._id}`)
+                    button.btn.btn-danger.btn-lg.btn-block.text-white.purchase-btn(type='button' data-item=`${product._id}` data-user = `${user === null?null:user._id}`)
                         span.h5 ĐẶT MUA NGAY
                         br
                         span.small Nhanh chóng, thuận tiện

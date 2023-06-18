@@ -32,9 +32,9 @@ block content
                         h6.col-xl-2 Dung lượng RAM
                         .col-xl-10(class="btn-group" role="group" aria-label="Button group")
                             a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "0" data-maxram= "4") <= 4GB
-                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "4" data-maxram= "8") 8GB
-                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "8" data-maxram= "16") 16GB
-                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "16" data-maxram= "128") > 16GB
+                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "5" data-maxram= "8") 8GB
+                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "9" data-maxram= "16") 16GB
+                            a: button(type="button" class="ram-filter btn btn-light m-1" data-minram = "17" data-maxram= "128") > 16GB
                     .row.align-items-center.d-none.d-sm-block
                         h6.col-xl-2 Bộ vi xử lí 
                         .col-xl-10(class="btn-group" role="group" aria-label="Button group")
@@ -82,8 +82,8 @@ block content
                         .col-xl-10.col-9(class="btn-group" role="group" aria-label="Button group")
                             a(href = '/'): button(type="button" class="btn btn-light m-1") Mặc định
                             a: button(type="button" class="avail btn btn-light m-1" ) Còn hàng
-                            a: button(type="button" class="ascPrice btn btn-light m-1" ) Giá tăng dần
-                            a: button(type="button" class="desPrice btn btn-light m-1" ) Giá giảm dần
+                            a: button(type="button" class="ascPrice btn btn-light m-1" ) Giá giảm dần
+                            a: button(type="button" class="desPrice btn btn-light m-1" ) Giá tăng dần
                             a: button.d-none.d-sm-block(type="button" class="desRate btn btn-light m-1" ) Bán chạy
                     .row.pt-3
                         if laptops.length == 0
@@ -109,10 +109,8 @@ block content
                                             br
                                             .d-flex.justify-content-between
                                                 a.text-primary So sánh
-                                                if user 
-                                                    button.btn.btn-white.purchase-btn(data-user = `${user.id}` data-item = `${laptop.id}`): i.text-primary.h5(class="fa-solid fa-cart-shopping")
-                                                else 
-                                                    button.btn.btn-white.purchase-btn(data-user = `${null}` data-item = `${laptop.id}`): i.text-primary.h5(class="fa-solid fa-cart-shopping")
+        
+                                                button.btn.btn-white.purchase-btn(data-user = `${user === null ? null :user._id}` data-item = `${laptop.id}`): i.text-primary.h5(class="fa-solid fa-cart-shopping")
                 if laptops.length > 0
                     .d-flex.justify-content-center.bg-white.py-3
                         if pageCurrent > 1

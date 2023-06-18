@@ -166,10 +166,12 @@ const isLoggedIn = async (req, res, next) => {
             //3. Check if user still exist
             const freshUser = await User.findById(decoded.id);
             if (!freshUser) {
+                res.locals.user = null;
                 return next();
             }
             //4. Check if users changed password after token was created
             if (freshUser.changedPassAfter(decoded.iat)) {
+                res.locals.user = null;
                 return next();
             }
             //5. User is logged
@@ -177,9 +179,11 @@ const isLoggedIn = async (req, res, next) => {
             req.user = freshUser;
             return next();
         }
+        res.locals.user = null;
         next();
     } catch (error) {
         console.log(error);
+        res.locals.user = null;
         return next();
     }
 };

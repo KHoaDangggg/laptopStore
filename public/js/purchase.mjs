@@ -50,7 +50,7 @@ const purchaseLocal = (itemId) => async () => {
 purchaseBtns.forEach((btn) => {
     const item = btn.dataset.item;
     const user = btn.dataset.user;
-    if (user !== null) {
+    if (user !== 'null') {
         btn.onclick = purchaseUser(item, user);
     } else {
         btn.onclick = purchaseLocal(item);

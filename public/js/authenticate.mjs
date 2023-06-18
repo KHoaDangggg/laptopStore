@@ -37,7 +37,7 @@ const signup = async (name, email, password, passwordConfirm) => {
             }, 200);
         }
     } catch (err) {
-        showAlert('error', 'Invalid username or password or password confirm');
+        showAlert('error', 'Thông tin đăng kí không hợp lệ');
     }
 };
 const logout = async () => {

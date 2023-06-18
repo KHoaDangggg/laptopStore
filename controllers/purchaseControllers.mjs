@@ -33,18 +33,12 @@ const stripe = new Stripe(
     'sk_test_51MpCA0DfcEM9cIAm0SlXbB7WjZpXe7HEwSwCAjde0FZoLndTIYUnHJsp5F5HEcyEUpCy9zJiU2OIIFRf2t5KNnXx00PnlNRkfx'
 );
 const checkOutSession = catchAsync(async (req, res) => {
-    console.log('checkOutSession');
-    //1. Get tour
-    const user = await User.findById(req.params.userID).populate('items');
-    const items = user.items;
-    const price = items.reduce((acc, cur) => acc + cur.new_price, 0);
+    const price = req.params.total;
     //2. Create checkout session
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         success_url: `${req.protocol}://${req.get('host')}/`,
         cancel_url: `${req.protocol}://${req.get('host')}/mycart`,
-        client_reference_id: req.params.userID,
-        customer_email: req.user.email,
         line_items: [
             {
                 price_data: {
@@ -52,7 +46,7 @@ const checkOutSession = catchAsync(async (req, res) => {
                     unit_amount: price,
                     product_data: {
                         name: `Thanh toán giỏ hàng`,
-                        description: 'Thanh toan',
+
                         images: [
                             `${req.protocol}://${req.get('host')}/purchase.jpg`,
                         ],

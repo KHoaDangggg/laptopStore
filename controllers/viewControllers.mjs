@@ -24,7 +24,6 @@ const getOverview = catchAsync(async (req, res) => {
 });
 const getProduct = catchAsync(async (req, res, next) => {
     const product = await Product.findOne({ slug: req.params.slug });
-    console.log(product);
     if (!product) next(new appError('There is no product with that name', 404));
 
     res.status(200).render('product', {

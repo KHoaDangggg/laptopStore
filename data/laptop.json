@@ -571,7 +571,7 @@
     },
     {
         "name_model": "Dell Latitude 14 5411",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop111.jpg", "laptop112.jpg", "laptop113.jpg"],
         "new_price": 23000000,
         "price": 25000000,
         "discount_percentage": 8,
@@ -633,7 +633,7 @@
     },
     {
         "name_model": "Lenovo ThinkPad X1 Carbon Gen 9",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop121.jpg", "laptop122.jpg", "laptop123.jpg"],
         "new_price": 33250000,
         "price": 35000000,
         "discount_percentage": 5,
@@ -690,7 +690,7 @@
     },
     {
         "name_model": "Lenovo IdeaPad 5 Pro",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop131.jpg", "laptop132.jpg", "laptop133.jpg"],
         "new_price": 22500000,
         "price": 25000000,
         "discount_percentage": 10,
@@ -752,7 +752,7 @@
     },
     {
         "name_model": "Lenovo Legion 5 Pro",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop141.jpg", "laptop142.jpg", "laptop143.jpg"],
         "new_price": 27900000,
         "price": 30000000,
         "discount_percentage": 7,
@@ -814,7 +814,7 @@
     },
     {
         "name_model": "Lenovo Yoga 9i",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop151.jpg", "laptop152.jpg", "laptop153.jpg"],
         "new_price": 28480000,
         "price": 32000000,
         "discount_percentage": 11,
@@ -871,7 +871,7 @@
     },
     {
         "name_model": "Lenovo Chromebook Duet",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop161.jpg", "laptop162.jpg", "laptop163.jpg"],
         "new_price": 5950000,
         "price": 7000000,
         "discount_percentage": 15,
@@ -918,7 +918,7 @@
     },
     {
         "name_model": "Acer Aspire 5 A515-56-73AP",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop171.jpg", "laptop172.jpg", "laptop173.jpg"],
         "new_price": 8100000,
         "price": 9000000,
         "discount_percentage": 10,
@@ -980,7 +980,7 @@
     },
     {
         "name_model": "Acer Nitro 5 AN515-45-R99Q",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop181.jpg", "laptop182.jpg", "laptop183.jpg"],
         "new_price": 10800000,
         "price": 12000000,
         "discount_percentage": 10,
@@ -1042,7 +1042,7 @@
     },
     {
         "name_model": "Acer Swift 3 SF314-59-75QC",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop191.jpg", "laptop192.jpg", "laptop193.jpg"],
         "new_price": 10450000,
         "price": 11000000,
         "discount_percentage": 5,
@@ -1099,7 +1099,7 @@
     },
     {
         "name_model": "Acer Chromebook Spin 311 CP311-3H-K3WL",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop201.jpg", "laptop202.jpg", "laptop203.jpg"],
         "new_price": 5700000,
         "price": 6000000,
         "discount_percentage": 5,
@@ -1151,7 +1151,7 @@
     },
     {
         "name_model": "Acer Predator Triton 500 PT515-52-73L3",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop211.jpg", "laptop212.png", "laptop213.jpg"],
         "new_price": 30600000,
         "price": 36000000,
         "discount_percentage": 15,
@@ -1213,7 +1213,7 @@
     },
     {
         "name_model": "Dell Latitude 7320",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop221.jpg", "laptop222.jpg", "laptop223.jpg"],
         "new_price": 17100000,
         "price": 18000000,
         "discount_percentage": 5,
@@ -1275,7 +1275,7 @@
     },
     {
         "name_model": "Dell Inspiron 15 3000",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop231.jpg", "laptop232.jpg", "laptop233.jpg"],
         "new_price": 7440000,
         "price": 8000000,
         "discount_percentage": 7,
@@ -1337,7 +1337,7 @@
     },
     {
         "name_model": "Dell G3 15 3500",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop241.jpg", "laptop242.jpg", "laptop243.jpg"],
         "new_price": 11700000,
         "price": 13000000,
         "discount_percentage": 10,
@@ -1399,7 +1399,7 @@
     },
     {
         "name_model": "Dell XPS 13 2-in-1 9310",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop251.jpg", "laptop252.jpg", "laptop253.jpg"],
         "new_price": 21600000,
         "price": 24000000,
         "discount_percentage": 10,
@@ -1446,7 +1446,7 @@
     },
     {
         "name_model": "Dell Precision 7550",
-        "image": ["laptop21.jpg", "laptop22.jpg", "laptop23.jpg"],
+        "image": ["laptop261.jpg", "laptop262.jpg", "laptop263.jpg"],
         "new_price": 32400000,
         "price": 36000000,
         "discount_percentage": 10,

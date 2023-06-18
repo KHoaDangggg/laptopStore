@@ -4,5 +4,5 @@ import { checkOutSession } from '../controllers/purchaseControllers.mjs';
 
 const router = express.Router();
 
-router.get('/checkout-session/:userID', protect, checkOutSession);
+router.get('/checkout-session/:total', checkOutSession);
 export default router;
